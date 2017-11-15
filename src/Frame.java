@@ -23,7 +23,7 @@ public class Frame extends JFrame
     }
 
     public static void main(String[] args)
-    {
+    { 
         Frame frame = new Frame("Cart Info");
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
