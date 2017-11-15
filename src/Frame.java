@@ -12,18 +12,19 @@ public class Frame extends JFrame
     {
         super(title);
 
+        panel = new Panel();
         this.add(panel);
 
-        // finish setting up the frame
+        
         setSize(800, 600);
-        setResizable(false);
+        setResizable(true);
         setLocationRelativeTo(null);
         setVisible(true);
     }
 
     public static void main(String[] args)
     {
-        Frame frame = new Frame("The Batman");
+        Frame frame = new Frame("Cart Info");
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
