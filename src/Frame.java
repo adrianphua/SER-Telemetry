@@ -15,7 +15,7 @@ public class Frame extends JFrame
         panel = new Panel();
         this.add(panel);
 
-        
+        //test
         setSize(800, 600);
         setResizable(true);
         setLocationRelativeTo(null);
