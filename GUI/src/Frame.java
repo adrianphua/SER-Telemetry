@@ -13,9 +13,16 @@ public class Frame extends JFrame
         super(title);
 
         panel = new Panel();
-        this.add(panel);
-
         
+        
+        rectangle temp = new rectangle(new Point(600, 50), 100, 400, Color.GRAY, false);
+        rectangle volts = new rectangle(new Point(450, 50), 100, 400, Color.GRAY, false);
+        
+        panel.addElement(temp);
+        panel.addElement(volts);
+        
+
+        this.add(panel);
         setSize(800, 600);
         setResizable(true);
         setLocationRelativeTo(null);
