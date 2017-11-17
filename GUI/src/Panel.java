@@ -10,6 +10,7 @@ public class Panel extends JPanel
     public void addElement(Element element)
     {
         elementList.add(element);
+        //test
     }
     
     @Override
