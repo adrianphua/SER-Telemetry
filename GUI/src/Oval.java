@@ -44,7 +44,7 @@ public class Oval extends Element
     public void draw(Graphics graphics)
     {
 
-        graphics.setColor(this.getColor());
+        graphics.setColor(Color.BLACK);
         graphics.setFont(new Font("TimesRoman", Font.PLAIN, 20));
         
         int titleX = (diameter1/2) + location[0].x - 5;

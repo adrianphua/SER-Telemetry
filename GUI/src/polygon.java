@@ -24,6 +24,7 @@ public abstract class polygon extends Element
         int[] yPoints = new int[numOfPoints];
         
         Point centerTitle = getCenter();
+        graphics.setColor(Color.BLACK);
         graphics.setFont(new Font("TimesRoman", Font.PLAIN, 20));
         
         graphics.drawString(title, centerTitle.x, centerTitle.y);
