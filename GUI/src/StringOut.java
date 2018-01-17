@@ -4,14 +4,12 @@ import java.awt.Graphics;
 
 public class StringOut extends Element
 {
-    String input;
     int x;
     int y;
     String value;
-    public StringOut(String in, int value, int x, int y, Color color, boolean filled)
+    public StringOut(int value, int x, int y, Color color, boolean filled, String title)
     {
-        super(color, filled);
-        input = in;
+        super(color, filled, title);
         this.x = x;
         this.y = y;
         this.value = "" + value;
@@ -21,11 +19,10 @@ public class StringOut extends Element
     @Override
     public void draw(Graphics g)
     {
-        Font Font = g.getFont();
+
         g.setFont(new Font("TimesRoman", Font.PLAIN, 80));
         g.drawString(value, x, y);
-        g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
-        g.drawString(input, x + 30, y + 5);
+
         
         
     }

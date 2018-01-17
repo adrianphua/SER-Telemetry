@@ -4,15 +4,12 @@ import java.awt.Point;
 
 public class rectangle extends polygon
 {
-    private Point point;
-    private int height;
 
-    public rectangle(Point pointUL, int width, int height, Color color, boolean filled)
+
+    public rectangle(Point pointUL, int width, int height, Color color, boolean filled, String title)
     {
-        super(color, filled);
+        super(color, filled, title);
         
-        point = pointUL;
-        this.height = height;
 
         this.location = new Point[4];
 
@@ -20,6 +17,14 @@ public class rectangle extends polygon
         location[1] = new Point(pointUL.x , pointUL.y + height);
         location[2] = new Point(pointUL.x + width, pointUL.y + height);
         location[3] = new Point(pointUL.x + width, pointUL.y);
+        
+        
+    }
+    
+    public Point getCenter()
+    {
+        Point center = new Point((location[2].x - (location[2].x - location[0].x)), location[2].y + 20);
+        return center;
     }
 
 }

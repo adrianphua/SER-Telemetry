@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 
 public class Frame extends JFrame
 {
+
     private static Panel panel;
 
     public Frame(String title)
@@ -17,24 +18,29 @@ public class Frame extends JFrame
         
         int mph = 0;
         int rpm = 0;
+
         
-        String mphString ="mph";
-        String rpmString ="x1000 rpm";
-        
-        //Add a white rectangle on top of temp rectangle and have the bottom shrink to the top
-        rectangle temp = new rectangle(new Point(800, 50), 100, 400, Color.RED, true);
-        
-        rectangle tempOverlay = new rectangle(new Point(800, 50), 100, 300, Color.WHITE, true);
-        rectangle volts = new rectangle(new Point(650, 50), 100, 400, Color.GREEN, true);
-        
-        Circle mphRing = new Circle(new Point(350, 50), 225, Color.BLACK, false);
-        Circle rpmRing = new Circle(new Point(100, 50), 225, Color.BLACK, false);
-        
-        StringOut mphOut = new StringOut(mphString, mph, 450, 180, null, false);
-        StringOut rpmOut = new StringOut(rpmString, rpm, 180, 180, null , false);
+    
+        rectangle temp = new rectangle(new Point(800, 50), 100, 400, Color.RED, true, "Temperature");
+        rectangle volts = new rectangle(new Point(650, 50), 100, 400, Color.GREEN, true, "Volts");
+        rectangle tempOverlay = new rectangle(new Point(800, 50), 100, 300, Color.WHITE, true, "");
         
         
-        tempOverlay = new rectangle(new Point(800, 50), 100, 300, Color.WHITE, true);
+        Circle mphRing = new Circle(new Point(350, 50), 225, Color.BLACK, false, "MPH");
+        Circle rpmRing = new Circle(new Point(100, 50), 225, Color.BLACK, false, "x1000 RPM");
+        
+        int titleX = mphRing.getCenterX()-10;
+        int titleY = mphRing.getCenterY()+20;
+        
+        StringOut mphOut = new StringOut(mph, titleX, titleY, null, false, "");
+        
+        titleX = rpmRing.getCenterX()-10;
+        titleY = rpmRing.getCenterY()+20;
+        
+        StringOut rpmOut = new StringOut(rpm, titleX, titleY, null , false, "");
+        
+        
+        tempOverlay = new rectangle(new Point(800, 50), 100, 300, Color.WHITE, true, "");
         panel.addElement(temp);
         panel.addElement(tempOverlay);
         panel.addElement(volts);
