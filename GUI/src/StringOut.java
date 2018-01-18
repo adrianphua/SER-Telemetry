@@ -7,7 +7,7 @@ public class StringOut extends Element
     int x;
     int y;
     String value;
-    public StringOut(int value, int x, int y, Color color, boolean filled, String title)
+    public StringOut(double value, int x, int y, Color color, boolean filled, String title)
     {
         super(color, filled, title);
         this.x = x;
