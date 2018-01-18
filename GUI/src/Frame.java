@@ -1,5 +1,6 @@
 
 import java.awt.Color;
+import java.util.Scanner;
 import java.awt.Point;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -8,7 +9,25 @@ import javax.swing.JPanel;
 public class Frame extends JFrame
 {
 
+    private int mph;
+    
+    private int rpm;
+    
     private static Panel panel;
+    
+    private rectangle temp;
+    
+    private rectangle volts;
+    
+    private rectangle tempOverlay;
+    
+    private Circle mphRing;
+    
+    private Circle rpmRing;
+    
+    private StringOut mphOut;
+    
+    private StringOut rpmOut;
 
     public Frame(String title)
     {
@@ -16,28 +35,26 @@ public class Frame extends JFrame
 
         panel = new Panel();
         
-        int mph = 0;
-        int rpm = 0;
+        mph = 0;
+        rpm = 0;
 
         
     
-        rectangle temp = new rectangle(new Point(800, 50), 100, 400, Color.RED, true, "Temperature");
-        rectangle volts = new rectangle(new Point(650, 50), 100, 400, Color.GREEN, true, "Volts");
-        rectangle tempOverlay = new rectangle(new Point(800, 50), 100, 300, Color.WHITE, true, "");
-        
-        
-        Circle mphRing = new Circle(new Point(350, 50), 225, Color.BLACK, false, "MPH");
-        Circle rpmRing = new Circle(new Point(100, 50), 225, Color.BLACK, false, "x1000 RPM");
+        temp = new rectangle(new Point(800, 50), 100, 400, Color.RED, true, "Temperature");
+        volts = new rectangle(new Point(650, 50), 100, 400, Color.GREEN, true, "Battery Capacity");
+        tempOverlay = new rectangle(new Point(800, 50), 100, 300, Color.WHITE, true, "");
+        mphRing = new Circle(new Point(350, 50), 225, Color.BLACK, false, "MPH");
+        rpmRing = new Circle(new Point(100, 50), 225, Color.BLACK, false, "x1000 RPM");
         
         int titleX = mphRing.getCenterX()-10;
         int titleY = mphRing.getCenterY()+20;
         
-        StringOut mphOut = new StringOut(mph, titleX, titleY, null, false, "");
+        mphOut = new StringOut(mph, titleX, titleY, null, false, "");
         
         titleX = rpmRing.getCenterX()-10;
         titleY = rpmRing.getCenterY()+20;
         
-        StringOut rpmOut = new StringOut(rpm, titleX, titleY, null , false, "");
+        rpmOut = new StringOut(rpm, titleX, titleY, null , false, "");
         
         
         tempOverlay = new rectangle(new Point(800, 50), 100, 300, Color.WHITE, true, "");
@@ -58,13 +75,43 @@ public class Frame extends JFrame
         setLocationRelativeTo(null);
         setVisible(true);
     }
+    public void setMPH(int mph)
+    {
+        this.mph = mph;
+    }
+    
+    public void setRPM(int rpm)
+    {
+        this.rpm = rpm;
+    }
+    
+    public void update()
+    {
+        Scanner keyboard = new Scanner(System.in);
+        
+        System.out.println("Enter mph");
+        setMPH(keyboard.nextInt());
+        System.out.println("mph is now: " + mph);
+        
+        int titleX = mphRing.getCenterX()-10;
+        int titleY = mphRing.getCenterY()+20;
+        mphOut = new StringOut(mph, titleX, titleY, null, false, "");
+        this.repaint();
+        
+        
+    }
     
     
 
     public static void main(String[] args)
     {
         Frame frame = new Frame("Cart Info");
-        frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        while(0 != 1)
+        {
+            frame.update();
+            frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        }
+        
     }
 
 }
