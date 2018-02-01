@@ -10,6 +10,7 @@ public class Panel extends JPanel
     public void addElement(Element element)
     {
         elementList.add(element);
+        
     }
     
     @Override
@@ -17,7 +18,6 @@ public class Panel extends JPanel
     {
         super.paintComponent(graphics);
         
-        //loop through shapelist and draw each shape
         for (Element element : elementList)
         {
             element.draw(graphics);

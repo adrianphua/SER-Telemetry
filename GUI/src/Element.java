@@ -9,10 +9,17 @@ public abstract class Element implements Drawable
     
     private boolean filled;
     
-    public Element(Color color, boolean filled)
+    private String title;
+    
+    public Element(Color color, boolean filled, String title)
     {
         this.color = color;
         this.filled = filled;
+        this.title = title;
+    }
+    public String getTitle()
+    {
+        return title;
     }
     
     public Color getColor()
